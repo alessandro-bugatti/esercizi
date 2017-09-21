@@ -1,0 +1,15 @@
+PROG main
+	OUT "Inserisci 1 per Normale, 2 per Celere 1 e 3 per Celere 2"
+	IN tipo
+	IN peso
+	IF tipo == 1
+		ASSIGN costo = 3*peso + 3
+	ELSE //if tipo == 1
+		IF tipo == 2
+			ASSIGN costo = 4*peso + 7
+		ELSE //if tipo == 2
+			ASSIGN costo = 6*peso + 13
+		END IF //tipo == 2
+	END IF //tipo == 1
+	OUT costo
+END PROG //main

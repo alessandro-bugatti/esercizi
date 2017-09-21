@@ -1,0 +1,10 @@
+PROG main
+	IN abbonamento
+	IN ingressi
+	IN costo_singolo
+	IF abbonamento < ingressi * costo_singolo
+		OUT "Compra l'abbonamento"
+	ELSE //if abbonamento < ingressi * costo_singolo
+		OUT "Compra i biglietti singoli"
+	END IF //abbonamento < ingressi * costo_singolo
+END PROG //main

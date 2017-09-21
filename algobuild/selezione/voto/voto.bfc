@@ -1,0 +1,8 @@
+PROG main
+	IN voto
+	IF voto < 18
+		OUT "L'esame non è passato"
+	ELSE //if voto < 18
+		OUT "L'esame è passato"
+	END IF //voto < 18
+END PROG //main

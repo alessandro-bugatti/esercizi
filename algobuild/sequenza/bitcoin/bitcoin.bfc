@@ -1,0 +1,5 @@
+PROG main
+	IN euro
+	ASSIGN bitcoin = euro / 3321.49
+	OUT bitcoin
+END PROG //main
