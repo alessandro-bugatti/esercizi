@@ -1,0 +1,21 @@
+PROG main
+	IN B
+	IN Esp
+	ASSIGN potenza = 1
+	ASSIGN conta = 0
+	ASSIGN negativo = 0
+	IF Esp < 0
+		ASSIGN Esp = -Esp
+		ASSIGN negativo = 1
+	ELSE //if Esp < 0
+	END IF //Esp < 0
+	WHILE conta < Esp
+		ASSIGN potenza = potenza * B
+		ASSIGN conta = conta + 1
+	END WHILE //conta < Esp
+	IF negativo == 1
+		OUT 1/potenza
+	ELSE //if negativo == 1
+		OUT potenza
+	END IF //negativo == 1
+END PROG //main
