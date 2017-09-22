@@ -1,0 +1,22 @@
+PROG main
+	IN N
+	IN M
+	IF N > M
+		ASSIGN temp = N
+		ASSIGN N = M
+		ASSIGN M = temp
+	ELSE //if N > M
+	END IF //N > M
+	ASSIGN risultato = 0
+	WHILE N != 1
+		IF N % 2 != 0
+			ASSIGN risultato = risultato + M
+			ASSIGN N = N - 1
+		ELSE //if N % 2 != 0
+		END IF //N % 2 != 0
+		ASSIGN N = N / 2
+		ASSIGN M = M * 2
+	END WHILE //N != 1
+	ASSIGN risultato = risultato +  M
+	OUT risultato
+END PROG //main

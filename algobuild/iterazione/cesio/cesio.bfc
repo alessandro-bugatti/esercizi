@@ -1,0 +1,9 @@
+PROG main
+	IN cesio
+	ASSIGN anni = 0
+	WHILE cesio > 0.001
+		ASSIGN cesio = cesio/2
+		ASSIGN anni = anni + 30
+	END WHILE //cesio > 0.001
+	OUT anni
+END PROG //main

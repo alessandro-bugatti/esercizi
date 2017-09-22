@@ -1,0 +1,7 @@
+PROG main
+	IN N
+	WHILE N != 0
+		OUT N % 10
+		ASSIGN N = (N - N%10)/10
+	END WHILE //N != 0
+END PROG //main

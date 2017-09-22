@@ -1,0 +1,17 @@
+PROG main
+	IN N
+	ASSIGN div = 2
+	ASSIGN divisori = 0
+	WHILE div <= sqrt(N) && divisori == 0
+		IF N % div == 0
+			ASSIGN divisori = divisori + 1
+		ELSE //if N % div == 0
+		END IF //N % div == 0
+		ASSIGN div = div + 1
+	END WHILE //div <= sqrt(N) && divisori == 0
+	IF divisori == 0
+		OUT "Primo"
+	ELSE //if divisori == 0
+		OUT "Non primo"
+	END IF //divisori == 0
+END PROG //main

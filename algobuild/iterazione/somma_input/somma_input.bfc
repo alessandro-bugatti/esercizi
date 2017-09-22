@@ -1,0 +1,12 @@
+PROG main
+	ASSIGN somma = 0
+	ASSIGN conta = 0
+	IN n
+	WHILE n != 0
+		ASSIGN somma = somma + n
+		ASSIGN conta = conta + 1
+		IN n
+	END WHILE //n != 0
+	OUT somma
+	OUT conta
+END PROG //main

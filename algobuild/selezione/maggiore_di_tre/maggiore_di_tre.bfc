@@ -1,0 +1,14 @@
+PROG main
+	IN A
+	IN B
+	IN C
+	IF A > B && A >C
+		OUT A
+	ELSE //if A > B && A >C
+		IF B > A && B > C
+			OUT B
+		ELSE //if B > A && B > C
+			OUT C
+		END IF //B > A && B > C
+	END IF //A > B && A >C
+END PROG //main
