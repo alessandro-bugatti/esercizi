@@ -1,0 +1,11 @@
+PROG main
+	IN N
+	ASSIGN Fn_1 = 1
+	ASSIGN Fn_2 = 1
+	FOR i=2; i < N; i = i + 1
+		ASSIGN Fn = Fn_1 + Fn_2
+		ASSIGN Fn_2 = Fn_1
+		ASSIGN Fn_1  = Fn
+	END FOR //i=2; i < N; i = i + 1
+	OUT Fn
+END PROG //main
