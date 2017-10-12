@@ -1,0 +1,11 @@
+PROG main
+	FOR i = 1; i <= 1000; i = i + 1
+		ASSIGN N = i
+		ASSIGN M = 0
+		WHILE N > 0
+			ASSIGN M = M*10 + N%10
+			ASSIGN N = floor(N/10)
+		END WHILE //N > 0
+		OUT M
+	END FOR //i = 1; i <= 1000; i = i + 1
+END PROG //main

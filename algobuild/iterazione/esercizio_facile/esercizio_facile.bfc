@@ -1,0 +1,9 @@
+PROG main
+	IN N
+	FOR i = 1; i <= N; i = i + 1
+		IF N % i == 0
+			OUT i
+		ELSE //if N % i == 0
+		END IF //N % i == 0
+	END FOR //i = 1; i <= N; i = i + 1
+END PROG //main
