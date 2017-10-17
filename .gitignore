@@ -46,6 +46,8 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-# C artifacts
+# C and CodeBlocks artifacts
 *.o
 *.exe
+*.depend
+*.layout
