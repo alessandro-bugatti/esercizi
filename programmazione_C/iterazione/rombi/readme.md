@@ -16,7 +16,7 @@ Si scriva un programma che dato in input un intero positivo N stampi un rombo ut
   *
 </pre>
 
-## Esempio 2 con N = 4
+## Esempio 3 con N = 4
 <pre>
 
    *
