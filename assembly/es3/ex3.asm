@@ -11,6 +11,7 @@
        LOADiH R3 0x00
 CICLO: STORE R1 R2
        ADD R2 R2 0x1
+#Qui contrariamente al solito si somma 1 e non 2 a R1 perchè i caratteri ASCII occupano solo un byte
        ADD R1 R1 0x1
        BLE R2 R3 CICLO
 FINE:  END
