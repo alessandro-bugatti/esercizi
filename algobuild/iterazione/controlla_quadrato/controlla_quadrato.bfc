@@ -1,0 +1,9 @@
+PROG main
+	IN N
+	ASSIGN M = floor(sqrt(N))
+	IF M*M == N
+		OUT "Perfetto"
+	ELSE //if M*M == N
+		OUT "Non perfetto"
+	END IF //M*M == N
+END PROG //main

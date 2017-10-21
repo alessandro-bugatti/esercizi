@@ -1,0 +1,9 @@
+PROG main
+	IN N
+	ASSIGN a = 0
+	WHILE N > 0
+		ASSIGN N = floor(N/10)
+		ASSIGN a = a + 1
+	END WHILE //N > 0
+	OUT a
+END PROG //main
