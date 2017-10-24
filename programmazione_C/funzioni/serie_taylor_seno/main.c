@@ -41,6 +41,6 @@ int main()
     scanf("%lf", &x);
     printf("Inserisci il numero di termini della serie: ");
     scanf("%d", &n);
-    printf("Il seno di %lf vale %lf\n",x , sen(x,7));
+    printf("Il seno di %lf vale %lf\n",x , sen(x,n));
     return 0;
 }
