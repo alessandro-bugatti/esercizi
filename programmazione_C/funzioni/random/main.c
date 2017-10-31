@@ -12,7 +12,8 @@ int main()
 {
     int i;
     srand(time(NULL));
+    //Simula 20 lanci di un dado a 6 facce
     for (i = 0; i < 20; i++)
-        printf("%d ", my_rand(1,6));
+        printf("%d ", my_rand(1,7));
     return 0;
 }
