@@ -1,0 +1,21 @@
+PROG main
+	IN N
+	ASSIGN somma = 0
+	ASSIGN quanti = 0
+	FOR i = 0; i < N; i = i +1
+		IN valore
+		ASSIGN somma = somma + valore
+		ASSIGN quanti = quanti + 1
+		IF quanti == 4
+			OUT somma
+			ASSIGN somma = 0
+			ASSIGN quanti = 0
+		ELSE //if quanti == 4
+		END IF //quanti == 4
+	END FOR //i = 0; i < N; i = i +1
+	IF quanti != 0
+		OUT somma
+		OUT quanti
+	ELSE //if quanti != 0
+	END IF //quanti != 0
+END PROG //main
