@@ -1,0 +1,13 @@
+PROG main
+	IN num
+	IN den
+	FOR i  = num; i > 1; i = i - 1
+		IF num%i == 0 && den % i == 0
+			ASSIGN num = num/i
+			ASSIGN den = den/i
+		ELSE //if num%i == 0 && den % i == 0
+		END IF //num%i == 0 && den % i == 0
+	END FOR //i  = num; i > 1; i = i - 1
+	OUT num
+	OUT den
+END PROG //main
