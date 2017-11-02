@@ -1,0 +1,12 @@
+PROG main
+	ASSIGN i = 1
+	WHILE i <= sqrt(60)
+		IF 60 % i == 0
+			OUT "Coppia"
+			OUT i
+			OUT 60 / i
+		ELSE //if 60 % i == 0
+		END IF //60 % i == 0
+		ASSIGN i = i + 1
+	END WHILE //i <= sqrt(60)
+END PROG //main
