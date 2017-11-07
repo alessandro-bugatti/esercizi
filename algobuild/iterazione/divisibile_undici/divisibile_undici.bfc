@@ -1,0 +1,26 @@
+PROG main
+	IN N
+	DO_WHILE //N>10
+		ASSIGN somma_pari = 0
+		ASSIGN somma_dispari = 0
+		ASSIGN flag = 1
+		WHILE N > 0
+			ASSIGN temp = floor(N / 10)
+			ASSIGN cifra = N - temp * 10
+			IF flag == 1
+				ASSIGN somma_dispari = somma_dispari + cifra
+				ASSIGN flag = 0
+			ELSE //if flag == 1
+				ASSIGN somma_pari = somma_pari + cifra
+				ASSIGN flag = 1
+			END IF //flag == 1
+			ASSIGN N = floor(N / 10)
+		END WHILE //N > 0
+		ASSIGN N = abs(somma_dispari - somma_pari)
+	END DO_WHILE N>10
+	IF N == 0
+		OUT "Divisibile"
+	ELSE //if N == 0
+		OUT "Non divisibile"
+	END IF //N == 0
+END PROG //main
