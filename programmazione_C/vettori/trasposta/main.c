@@ -2,11 +2,11 @@
 #include <stdlib.h>
 
 #define N 3
-#define M 3
+#define M 4
 
 int main()
 {
-    int m[N][M], t[N][M];
+    int m[N][M], t[M][N];
     int i,j;
     for (i = 0; i < N; i++)
         for (j = 0; j < M; j++)
@@ -22,12 +22,12 @@ int main()
     for (i = 0; i < N; i++)
         for (j = 0; j < M; j++)
         {
-            t[i][j] = m[j][i];
+            t[j][i] = m[i][j];
         }
     printf("Trasposta\n");
-    for (i = 0; i < N; i++)
+    for (i = 0; i < M; i++)
     {
-        for (j = 0; j < M; j++)
+        for (j = 0; j < N; j++)
             printf("%d ", t[i][j]);
         printf("\n");
     }
