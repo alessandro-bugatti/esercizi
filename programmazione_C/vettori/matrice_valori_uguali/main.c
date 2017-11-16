@@ -17,7 +17,7 @@ void trova_uguali(int m[][N], int v[], int n, int numero)
 int main()
 {
     int m[][N] = {{1,2,1},{4,5,1},{1,1,1}};
-    int v[3], i;
+    int v[N], i;
     trova_uguali(m, v, 3, 5);
     for (i = 0; i<3; i++)
         printf("%d\n", v[i]);
