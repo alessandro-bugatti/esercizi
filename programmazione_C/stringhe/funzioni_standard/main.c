@@ -26,12 +26,14 @@
 //    return 0;
 //}
 
-//int main()
-//{
-//    char s1[30], s2[] = "a tutti";
-//    strncpy(s1,"Ciao ", 29);
-//    printf("s1: %s \n", s1, s2);
-//    strncat(s1, s2, 29);
-//    printf("s1: %s \n", s1, s2);
-//    return 0;
-//}
+int main()
+{
+    char s1[30], s2[] = "a tutti";
+    strncpy(s1,"Ciao ", 29);
+    printf("s1: %s \n", s1);
+    strncat(s1, s2, 29);
+    printf("s1: %s \n", s1);
+    return 0;
+}
+
+
