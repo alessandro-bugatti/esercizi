@@ -60,7 +60,7 @@ void bubble_sort( int a[], int l, int r)
 {
     int i,j;
     for (i=l; i<r ; i++)
-        for (j=r;j>i;j--)
+        for (j=r; j>i; j--)
             if (a[j-1]>a[j])
             {
                 int t=a[j];
@@ -72,7 +72,7 @@ void bubble_sort( int a[], int l, int r)
 void selection_sort(int a[], int l, int r)
 {
     int i,j;
-    for (i=l;i<r;i++)
+    for (i=l; i<r; i++)
     {
         int min=i;
         for (j=i+1; j<=r; j++)
@@ -87,23 +87,42 @@ int merge(int a[], int b[], int c[],int n)
 {
     int i, j, k;
     i = j = k = 0;
-    while (i < n && j < n){
-        if(a[i]<a[j])
+    while (i < n && j < n)
+    {
+        if(a[i]<b[j])
             c[k] = a[i++];
         else
-            c[k] = a[j++];
+            c[k] = b[j++];
         k++;
     }
-    while(i<=n){
-        aux[k] = a[i];
+    while(i<n)
+    {
+        c[k] = a[i];
         i++;
         k++;
     }
-    while(i<=n){
-        aux[k] = a[i];
-        i++;
+    while(j<n)
+    {
+        c[k] = b[j];
+        j++;
         k++;
     }
+}
+
+int ricerca_binaria(int v[], int n, int cercato)
+{
+    int i = 0, j = n - 1, m;
+    while (i <= j)
+    {
+        m = (i + j)/2;
+        if (v[m] == cercato)
+            return m;
+        if (v[m] > cercato)
+            j = m - 1;
+        else
+            i = m + 1;
+    }
+    return -1;
 }
 
 
@@ -151,10 +170,15 @@ int main()
     //Fusione
     inizializza_vettore(v, LUNGHEZZA);
     inizializza_vettore(v2, LUNGHEZZA);
-    bubble_sort(v, 0 , LUNGHEZZA - 1);
-    bubble_sort(v2, 0 , LUNGHEZZA - 1);
+    bubble_sort(v, 0, LUNGHEZZA - 1);
+    bubble_sort(v2, 0, LUNGHEZZA - 1);
     merge(v, v2, v3, LUNGHEZZA);
     printf("Dopo il merge: ");
     stampa(v3,LUNGHEZZA*2);
+    //Ricerca binaria
+    stampa(v, LUNGHEZZA);
+    //Ricerca con successo
+    printf("Il numero %d si trova in posizione %d\n", cercato,
+           ricerca_binaria(v, LUNGHEZZA, v[4]));
     return 0;
 }
