@@ -173,6 +173,8 @@ int main()
     bubble_sort(v, 0, LUNGHEZZA - 1);
     bubble_sort(v2, 0, LUNGHEZZA - 1);
     merge(v, v2, v3, LUNGHEZZA);
+    stampa(v, LUNGHEZZA);
+    stampa(v2, LUNGHEZZA);
     printf("Dopo il merge: ");
     stampa(v3,LUNGHEZZA*2);
     //Ricerca binaria
