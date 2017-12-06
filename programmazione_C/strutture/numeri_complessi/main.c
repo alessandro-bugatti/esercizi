@@ -36,7 +36,9 @@ int main()
    Complesso a, b, c;
    a.re = 1;
    a.im = 1;
+   printf("Inserisci la parte reale: ");
    scanf("%lf", &b.re);
+   printf("Inserisci la parte immaginaria: ");
    scanf("%lf", &b.im);
    printf("\nIl modulo di ");
    stampa(a);
