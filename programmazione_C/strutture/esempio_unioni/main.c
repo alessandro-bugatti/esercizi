@@ -46,6 +46,6 @@ int main()
     //oppure su un byte specifico, può essere comodo
     reg.bytes.byte2 = 0xFF;
     printf("Il registro contiene il seguente valore: %p\n",
-           reg.bytes);
+           reg.dword);
     return 0;
 }
