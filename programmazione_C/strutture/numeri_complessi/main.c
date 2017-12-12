@@ -1,35 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "complessi.h"
 
-typedef struct{
-    double re;
-    double im;
-} Complesso;
-
-void stampa( Complesso c)
-{
-    printf("%.2lf + %.2lfi", c.re, c.im);
-}
-
-double modulo(Complesso c)
-{
-    return sqrt(c.re*c.re + c.im*c.im);
-}
-
-Complesso somma(Complesso a, Complesso b)
-{
-    Complesso c;
-    c.re = a.re + b.re;
-    c.im = a.im + b.im;
-    return c;
-}
-
-Complesso differenza(Complesso a, Complesso b)
-{
-    b.re = -b.re;
-    b.im = -b.im;
-    return somma(a,b);
-}
 
 int main()
 {
@@ -40,13 +12,31 @@ int main()
    scanf("%lf", &b.re);
    printf("Inserisci la parte immaginaria: ");
    scanf("%lf", &b.im);
+   printf("La forma esponenziale di a è\n");
+   stampaExp(convertiInExp(b));
    printf("\nIl modulo di ");
    stampa(a);
    printf(" vale %lf", modulo(a));
+   printf("\nIl coniugato di ");
+   stampa(a);
+   printf(" è ");
+   stampa(coniugato(a));
+   printf("\nIl reciproco di ");
+   stampa(a);
+   printf(" è ");
+   stampa(reciproco(a));
+   printf("\nDati i numeri: ");
+   stampa(a);
+   printf(" e ");
+   stampa(b);
    printf("\nLa somma vale :");
    stampa(somma(a,b));
    printf("\nLa differenza vale :");
    stampa(differenza(a,b));
+   printf("\nIl prodotto vale :");
+   stampa(prodotto(a,b));
+   printf("\nIl rapporto vale :");
+   stampa(rapporto(a,b));
 
    return 0;
 }
