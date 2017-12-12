@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define MAX_STUDENTI 100
 
@@ -31,6 +32,18 @@ void menu()
     printf("\n 0) Esci");
 }
 
+int ricerca(Studente studenti[], int quanti)
+{
+    char matricola[20];
+    printf("Inserisci la matricola dello studente: ");
+    scanf("%s", matricola);
+    int i;
+    for (i = 0; i < quanti; i++)
+        if (strncmp(matricola, studenti[i].matricola,20) == 0)
+            return i;
+    return -1;
+}
+
 void aggiungi_studente(Studente studenti[], int quanti)
 {
     printf("Inserisci la matricola: ");
@@ -47,9 +60,35 @@ void aggiungi_esame(Studente studenti[], int quale)
     Esame e;
     printf("Inserisci il nome dell'esame: ");
     scanf("%s", e.nome);
+    printf("Inserisci il giorno: ");
+    scanf("%d", &e.data_registrazione.giorno);
+    printf("Inserisci il mese: ");
+    scanf("%d", &e.data_registrazione.mese);
+    printf("Inserisci l'anno: ");
+    scanf("%d", &e.data_registrazione.anno);
+    printf("Inserisci il voto: ");
+    scanf("%d", &e.voto);
     int posizione_esame = studenti[quale].esami_sostenuti;
     studenti[quale].esami[posizione_esame] = e;
     studenti[quale].esami_sostenuti++;
+}
+
+void stampa_esame(Esame e)
+{
+    printf("\n\t%s (%d/%d/%d): %d",e.nome, e.data_registrazione.giorno,
+           e.data_registrazione.mese, e.data_registrazione.anno, e.voto);
+}
+
+void stampa_studente(Studente s)
+{
+    printf("\nMatricola: %s", s.matricola);
+    printf("\nNome: %s", s.nome);
+    printf("\nCognome: %s", s.cognome);
+    printf("\nNumero esami sostenuti: %d", s.esami_sostenuti);
+    printf("\nEsami sostenuti");
+    int j;
+    for (j = 0; j < s.esami_sostenuti ; j++)
+        stampa_esame(s.esami[j]);
 }
 
 void stampa_elenco(Studente studenti[], int quanti)
@@ -57,12 +96,7 @@ void stampa_elenco(Studente studenti[], int quanti)
     printf("\nStampa elenco");
     int i;
     for (i = 0; i < quanti; i++)
-    {
-        printf("\nMatricola: %s", studenti[i].matricola);
-        printf("\nNome: %s", studenti[i].nome);
-        printf("\nCognome: %s", studenti[i].cognome);
-        printf("\nNumero esami sostenuti: %d", studenti[i].esami_sostenuti);
-    }
+        stampa_studente(studenti[i]);
 }
 
 int main()
@@ -110,16 +144,35 @@ int main()
     studenti[1] = temp2;
     int numero_studenti = 2;
     menu();
-    printf("\nScegli cosa fare");
+    printf("\nScegli cosa fare: ");
     scanf("%d", &scelta);
+    int posizione_studente;
     while (scelta != 0){
         switch(scelta){
-            case 1:aggiungi_studente(studenti, numero_studenti);
+            case 1:
+                aggiungi_studente(studenti, numero_studenti);
                 numero_studenti++;
                 stampa_elenco(studenti, numero_studenti);
             break;
-            case 2:aggiungi_esame(studenti,0);
-                stampa_elenco(studenti, numero_studenti);
+            case 2:
+
+                posizione_studente = ricerca(studenti, numero_studenti);
+                if (posizione_studente == -1)
+                    printf("Studente non trovato\n");
+                else
+                {
+                    aggiungi_esame(studenti,posizione_studente);
+                    stampa_elenco(studenti, numero_studenti);
+                }
+            break;
+            case 3:
+                posizione_studente = ricerca(studenti, numero_studenti);
+                if (posizione_studente == -1)
+                    printf("Studente non trovato\n");
+                else
+                {
+                    stampa_studente(studenti[posizione_studente]);
+                }
             break;
 
             default:
