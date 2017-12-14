@@ -29,6 +29,8 @@ void menu()
     printf("\n 1) Aggiungi uno studente");
     printf("\n 2) Aggiungi un esame a uno studente");
     printf("\n 3) Stampa esami di uno studente");
+    printf("\n 4) Studente che hanno effettuato un esame (da implementare");
+    printf("\n 5) Stampa studenti in ordine di cognome");
     printf("\n 0) Esci");
 }
 
@@ -99,6 +101,20 @@ void stampa_elenco(Studente studenti[], int quanti)
         stampa_studente(studenti[i]);
 }
 
+void ordina_cognome(Studente studenti[], int quanti)
+{
+    int i, j;
+    for (i=0; i < quanti - 1; i++)
+        for (j = quanti - 1; j>i; j--)
+            if ( strncmp(studenti[j-1].cognome, studenti[j].cognome, 50) > 0)
+            {
+                Studente t=studenti[j];
+                studenti[j]=studenti[j-1];
+                studenti[j-1]=t;
+            }
+
+}
+
 int main()
 {
     int scelta;
@@ -106,7 +122,7 @@ int main()
     Studente temp = {
         "12345",
         "Arturo",
-        "Astolfi",
+        "Rastolfi",
         {
             {
                 "Algebra",
@@ -174,7 +190,11 @@ int main()
                     stampa_studente(studenti[posizione_studente]);
                 }
             break;
-
+            case 4: //da implementare
+                break;
+            case 5:
+                ordina_cognome(studenti, numero_studenti);
+                stampa_elenco(studenti, numero_studenti);
             default:
                 printf("\La tua scelta non è valida");
 
