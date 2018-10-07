@@ -1,7 +1,9 @@
 PROG main
 	IN N
+	ASSIGN somma = 0
 	WHILE N != 0
-		OUT N % 10
+		OUT somma = somma + N % 10
 		ASSIGN N = (N - N%10)/10
 	END WHILE //N != 0
+	OUT somma
 END PROG //main
