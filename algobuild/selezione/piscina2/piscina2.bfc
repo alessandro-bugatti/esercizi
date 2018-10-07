@@ -1,0 +1,14 @@
+PROG main
+	IN costo_abbonamento
+	IN costo_biglietto
+	IN biglietti
+	ASSIGN n_abbonamenti = floor(biglietti/10)
+	ASSIGN singoli = biglietti - n_abbonamenti*10
+	IF singoli*costo_biglietto > costo_abbonamento
+		ASSIGN singoli = 0
+		ASSIGN n_abbonamenti = n_abbonamenti + 1
+	ELSE //if singoli*costo_biglietto > costo_abbonamento
+	END IF //singoli*costo_biglietto > costo_abbonamento
+	OUT n_abbonamenti
+	OUT singoli
+END PROG //main
