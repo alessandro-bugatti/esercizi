@@ -1,0 +1,30 @@
+PROG main
+	ASSIGN triangoli = 0
+	ASSIGN rettangoli = 0
+	IN N
+	FOR i = 0; i < N; i = i + 1
+		IN a
+		IN b
+		IN c
+		IF a < b
+			ASSIGN temp = a
+			ASSIGN a = b
+			ASSIGN b = temp
+		ELSE //if a < b
+		END IF //a < b
+		IF a < c
+			ASSIGN temp = a
+			ASSIGN a = c
+			ASSIGN c = temp
+		ELSE //if a < c
+		END IF //a < c
+		IF a < b + c
+			ASSIGN triangoli = triangoli + 1
+			IF a*a == (b*b + c*c)
+				ASSIGN rettangoli = rettangoli + 1
+			ELSE //if a*a == (b*b + c*c)
+			END IF //a*a == (b*b + c*c)
+		ELSE //if a < b + c
+		END IF //a < b + c
+	END FOR //i = 0; i < N; i = i + 1
+END PROG //main
