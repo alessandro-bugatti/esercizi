@@ -3,8 +3,8 @@
 
 #ifdef WIN32
     #define PAUSE system("pause>nul|set/p = Premere un tasto per lanciare il dado...");
-#elif
-    #define PAUSE system("read -p \"Premere un tasto per lanciare il dado...\"");
+#else
+    #define PAUSE system("read -p 'Premere INVIO per lanciare il dado...' continue");
 #endif // WIN32
 
 int lancio_un_dado()
