@@ -1,0 +1,3 @@
+# Esempio di utilizzo di variabile globali e locali
+
+Il programma contenuto in questo esercizio riprende quanto visto a lezione, cercando di mostrare tutti i vari casi in cui le variabili possono apparire in contesti locali o globali e le differenze che ciò comporta. Provare a eseguire il programma e aggiungere o togliere variabili per vedere l'effeto che questo provoca (variabili non definite, shadowing, variabili definite più volte ecc.)
