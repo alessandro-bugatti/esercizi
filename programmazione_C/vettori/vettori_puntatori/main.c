@@ -7,6 +7,7 @@ char *code[] = {"int elemento_massimo(int v[], int n)\n{\n    int m = v[0], i;\n
     "int elemento_massimo_puntatori(int *v, int n)\n{\n    int m = *v, i;\n    for (i = 1; i < n; i++)\n        if (*(v + i) > m)\n            m = *(v + i);\n    return m;\n}",
     "int elemento_massimo_puntatore_vettori(int *v, int n)\n{\n    int m = v[0], i;\n    for (i = 1; i < n; i++)\n        if (v[i] > m)\n            m = v[i];\n    return m;\n}",
     "int elemento_massimo_vettore_puntatori(int v[], int n)\n{\n    int m = *v, i;\n    for (i = 1; i < n; i++)\n        if (*(v + i) > m)\n            m = *(v + i);\n    return m;\n}",
+    "int elemento_massimo_aritmetica_puntatori(int *v, int n)\n{\n    int m = *v;\n    int *end = v + n;\n    while(++v < end)\n        if (*v > m)\n            m = *v;\n    return m;\n}",
     "void elemento_massimo_per_riferimento(int *v, int n, int *m)\n{\n    int i;\n    *m = v[0];\n    for (i = 1; i < n; i++)\n        if (v[i] > *m)\n            *m = v[i];\n}"
     };
 
@@ -51,6 +52,17 @@ int elemento_massimo_vettore_puntatori(int v[], int n)
     return m;
 }
 
+//Versione con aritmetica dei puntatori
+int elemento_massimo_aritmetica_puntatori(int *v, int n)
+{
+    int m = *v;
+    int *end = v + n;
+    while(++v < end)
+        if (*v > m)
+            m = *v;
+    return m;
+}
+
 void elemento_massimo_per_riferimento(int *v, int n, int *m)
 {
     int i;
@@ -78,9 +90,11 @@ int main()
     printf("\nFunzione con notazione parametro puntatore e corpo con vettori:\n%s \nMassimo: %d", code[2], massimo);
     massimo = elemento_massimo_vettore_puntatori(v, n);
     printf("\nFunzione con notazione parametro vettore e corpo con puntatori:\n%s \nMassimo: %d", code[3], massimo);
+    massimo = elemento_massimo_aritmetica_puntatori(v, n);
+    printf("\nFunzione con aritmetica dei puntatori:\n%s \nMassimo: %d", code[4], massimo);
     massimo = 0; //serve solo a verificare che la funzione faccia davvero il proprio compito
     elemento_massimo_per_riferimento(v, n, &massimo);
-    printf("\nFunzione con passaggio del massimo per riferimento:\n%s \nMassimo: %d", code[4], massimo);
+    printf("\nFunzione con passaggio del massimo per riferimento:\n%s \nMassimo: %d", code[5], massimo);
 
 
     return 0;
