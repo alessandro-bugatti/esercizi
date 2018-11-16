@@ -3,12 +3,14 @@
 
 char simboli(int n)
 {
+    //Prima soluzione, più standard
     /*if (n == 0)
         return ' ';
     if (n == 1)
         return 'O';
     if (n == 2)
         return 'X';*/
+    //Seconda soluzione, più compatta
     char s[] ={' ','o','x'};
     return s[n];
 }
@@ -24,15 +26,16 @@ int mossa_valida(int x, int y, int tris[][3], int n)
     return 0;
 }
 
-
-
 void stampa_griglia(int tris[][3], int n)
 {
     int i, j;
     for (i = 0; i < n; i++){
-        for (j = 0; j < 3; j++)
-            printf("%c ", simboli(tris[i][j]));
-        printf("\n");
+        printf(" %c ", simboli(tris[i][0]));
+        for (j = 1; j < 3; j++)
+            printf("| %c ", simboli(tris[i][j]));
+        if (i < n - 1)
+            printf("\n-----------\n");
+
     }
 }
 
@@ -71,6 +74,7 @@ int controlla_stato(int tris[][3], int n)
     return 3;
 }
 
+//Prima soluzione, con passaggio per valore
 /*int cambia_turno(int giocatore)
 {
     if (giocatore == 1)
@@ -78,6 +82,7 @@ int controlla_stato(int tris[][3], int n)
     return 1;
 }*/
 
+//Seconda soluzione, con passaggio per indirizzo
 void cambia_turno(int *giocatore)
 {
     if (*giocatore == 1)
@@ -101,7 +106,7 @@ int main()
     {
         int r, c;
         stampa_griglia(tris, 3);
-        printf("Giocatore %d fai la tua mossa\n", giocatore);
+        printf("\nGiocatore %d fai la tua mossa\n", giocatore);
         printf("Inserisci il numero di riga: ");
         scanf("%d", &r);
         printf("Inserisci il numero di colonna: ");
@@ -119,10 +124,11 @@ int main()
         cambia_turno(&giocatore);
         stato = controlla_stato(tris, 3);
     }
+    stampa_griglia(tris, 3);
     if (stato == 3)
-        printf("Partita pareggiata\n");
+        printf("\nPartita pareggiata\n");
     else
-        printf("Ha vinto il giocatore %d", stato);
+        printf("\nHa vinto il giocatore %d", stato);
 
     return 0;
 }
