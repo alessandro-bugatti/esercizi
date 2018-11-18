@@ -3,11 +3,14 @@
 
 //int main()
 //{
-//    char s1[10], s2[] = "Parola",
+//    char s2[] = "Parola", s1[10],
 //    s3[] = "Frase troppo lunga per stare in s1";
-//    strncpy(s1, s2, 9);
+//    strncpy(s1, s2, 10);
 //    printf("s1: %s\ns2: %s\n", s1, s2);
-//    strncpy(s1, s3, 9);
+//    //Qua s1 non contiene il terminatore, poichè 10
+//    //è minore della lunghezza di s3, quindi sarabbe
+//    //da aggiungere "a mano"
+//    strncpy(s1, s3, 10);
 //    printf("s1: %s\ns3: %s\n", s1, s3);
 //    return 0;
 //}
@@ -29,9 +32,9 @@
 int main()
 {
     char s1[30], s2[] = "a tutti";
-    strncpy(s1,"Ciao ", 29);
+    strncpy(s1,"Ciao ", 30);
     printf("s1: %s \n", s1);
-    strncat(s1, s2, 29);
+    strncat(s1, s2, 10);
     printf("s1: %s \n", s1);
     return 0;
 }
