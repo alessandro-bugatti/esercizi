@@ -15,13 +15,12 @@ void my_strncpy(char dest[], char src[], int n)
 int my_strncmp(char s1[], char s2[], int n)
 {
     int i = 0;
-    int len = strlen(s1);
-    for (i = 0; i < n && i < len; i++)
+    for (i = 0; i < n && s1[i] != '\0'; i++)
         if (s1[i] < s2[i])
             return -1;
         else if (s1[i] > s2[i])
             return 1;
-    return 0;
+    return strlen(s1) - strlen(s2);
 }
 
 void my_strncat(char dest[], char src[], int n)
@@ -45,11 +44,26 @@ int main()
     printf("my_strcpy s1: %s\n", s1);
 
     //strncmp - my_strncmp
-    my_strncpy(s1, s3, 20);
-    if (strncmp(s1,s3,2) == 0)
+    my_strncpy(s1, "caso", 20);
+    my_strncpy(s3, "caso", 20);
+    if (strncmp(s1,s3,20) == 0)
         printf("strncmp: %s uguale a %s\n", s1, s3);
     if (my_strncmp(s1,s3,20) == 0)
         printf("my_strncmp: %s uguale a %s\n", s1, s3);
+
+    my_strncpy(s1, "cavallo", 20);
+    my_strncpy(s3, "partita", 20);
+    if (strncmp(s1,s3,20) < 0)
+        printf("strncmp: %s viene prima di %s\n", s1, s3);
+    else if (my_strncmp(s1,s3,20) > 0)
+        printf("my_strncmp: %s viene dopo %s\n", s1, s3);
+
+    my_strncpy(s1, "casolare", 20);
+    my_strncpy(s3, "caso", 20);
+    if (strncmp(s1,s3,20) < 0)
+        printf("strncmp: %s viene prima di %s\n", s1, s3);
+    else if (my_strncmp(s1,s3,20) > 0)
+        printf("my_strncmp: %s viene dopo %s\n", s1, s3);
 
     //Utilizzo dell'operatore sizeof() e della funzione strlen
     strncpy(s1, "9 lettere", 19);
