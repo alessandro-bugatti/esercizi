@@ -52,6 +52,12 @@ int main()
     pb = pa;
     printf("I due punti (%.1f, %.1f) e (%.1f, %.1f) sono uguali\n",
                pa.x, pa.y, pb.x, pb.y);
+    //Utilizzo di puntatori e arrow notation
+    Punto2D *punt;
+    punt = &pa;
+    printf("I due punti (%.1f, %.1f) e (%.1f, %.1f) sono uguali\n",
+               pa.x, pa.y, punt->x, punt->y);
+
     //Utilizzo di una struttura composta
     Triangolo t;
     t.v1.x = 0;
