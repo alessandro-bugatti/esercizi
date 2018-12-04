@@ -31,6 +31,7 @@ void menu()
     printf("\n 3) Stampa esami di uno studente");
     printf("\n 4) Studenti che hanno effettuato un esame");
     printf("\n 5) Stampa studenti in ordine di cognome");
+    printf("\n 6) Stampa media voti di uno studente");
     printf("\n 0) Esci");
 }
 
@@ -126,6 +127,15 @@ void passati_esame(Studente studenti[], int quanti, char esame[])
         printf("Nessuno studente ha ancora passato l'esame.\n");
 }
 
+float media_voti_studente(Studente s)
+{
+    float media = 0;
+    int i;
+    for (i = 0; i < s.esami_sostenuti; i++)
+        media += s.esami[i].voto;
+    return media/s.esami_sostenuti;
+}
+
 void ordina_cognome(Studente studenti[], int quanti)
 {
     int i, j;
@@ -137,7 +147,6 @@ void ordina_cognome(Studente studenti[], int quanti)
                 studenti[j]=studenti[j-1];
                 studenti[j-1]=t;
             }
-
 }
 
 int main()
@@ -226,8 +235,20 @@ int main()
                 ordina_cognome(studenti, numero_studenti);
                 stampa_elenco(studenti, numero_studenti);
                 break;
+            case 6:
+                posizione_studente = ricerca(studenti, numero_studenti);
+                if (posizione_studente == -1)
+                    printf("Studente non trovato\n");
+                else
+                {
+                    printf("La media dei voti di %s %s vale %.2f" ,
+                           studenti[posizione_studente].nome,
+                           studenti[posizione_studente].cognome,
+                           media_voti_studente(studenti[posizione_studente]));
+                }
+                break;
             default:
-                printf("La tua scelta non è valida");
+                printf("\nLa tua scelta non è valida");
 
         }
 
