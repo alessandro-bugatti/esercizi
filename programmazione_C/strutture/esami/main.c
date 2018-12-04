@@ -29,7 +29,7 @@ void menu()
     printf("\n 1) Aggiungi uno studente");
     printf("\n 2) Aggiungi un esame a uno studente");
     printf("\n 3) Stampa esami di uno studente");
-    printf("\n 4) Studente che hanno effettuato un esame (da implementare");
+    printf("\n 4) Studenti che hanno effettuato un esame");
     printf("\n 5) Stampa studenti in ordine di cognome");
     printf("\n 0) Esci");
 }
@@ -101,6 +101,31 @@ void stampa_elenco(Studente studenti[], int quanti)
         stampa_studente(studenti[i]);
 }
 
+void passati_esame(Studente studenti[], int quanti, char esame[])
+{
+    int i, j, conta = 0;
+    printf("Lista studenti che hanno passato %s\n", esame);
+    for (i = 0; i < quanti; i++)
+    {
+        for (j = 0; j < studenti[i].esami_sostenuti; j++)
+            if (strncmp(esame,
+                studenti[i].esami[j].nome,20) == 0)
+            {
+                conta++;
+                printf("%s %s %d/%d/%d: voto %d\n",
+                   studenti[i].cognome,
+                   studenti[i].nome,
+                   studenti[i].esami[j].data_registrazione.giorno,
+                   studenti[i].esami[j].data_registrazione.mese,
+                   studenti[i].esami[j].data_registrazione.anno,
+                   studenti[i].esami[j].voto);
+            }
+
+    }
+    if (conta == 0)
+        printf("Nessuno studente ha ancora passato l'esame.\n");
+}
+
 void ordina_cognome(Studente studenti[], int quanti)
 {
     int i, j;
@@ -163,6 +188,7 @@ int main()
     printf("\nScegli cosa fare: ");
     scanf("%d", &scelta);
     int posizione_studente;
+    char materia[50];
     while (scelta != 0){
         switch(scelta){
             case 1:
@@ -190,11 +216,16 @@ int main()
                     stampa_studente(studenti[posizione_studente]);
                 }
             break;
-            case 4: //da implementare
+            case 4:
+                printf("Inserisci il nome dell'esame: ");
+                //ATTENZIONE: con la scanf il nome dell'esame non può contenere spazi
+                scanf("%s", materia);
+                passati_esame(studenti, numero_studenti, "Analisi");
                 break;
             case 5:
                 ordina_cognome(studenti, numero_studenti);
                 stampa_elenco(studenti, numero_studenti);
+                break;
             default:
                 printf("La tua scelta non è valida");
 
