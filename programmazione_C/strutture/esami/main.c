@@ -46,15 +46,15 @@ int ricerca(Studente studenti[], int quanti)
     return -1;
 }
 
-void aggiungi_studente(Studente studenti[], int quanti)
+void aggiungi_studente(Studente studenti[], int posizione)
 {
     printf("Inserisci la matricola: ");
-    scanf("%s", studenti[quanti].matricola);
+    scanf("%s", studenti[posizione].matricola);
     printf("Inserisci la nome: ");
-    scanf("%s", studenti[quanti].nome);
+    scanf("%s", studenti[posizione].nome);
     printf("Inserisci la cognome: ");
-    scanf("%s", studenti[quanti].cognome);
-    studenti[quanti].esami_sostenuti = 0;
+    scanf("%s", studenti[posizione].cognome);
+    studenti[posizione].esami_sostenuti = 0;
 }
 
 void aggiungi_esame(Studente studenti[], int quale)
@@ -196,7 +196,7 @@ int main()
                 ordina_cognome(studenti, numero_studenti);
                 stampa_elenco(studenti, numero_studenti);
             default:
-                printf("\La tua scelta non è valida");
+                printf("La tua scelta non è valida");
 
         }
 
