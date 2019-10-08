@@ -1,0 +1,2 @@
+# Esempio 4
+Scrivere il programma Assembly che prende ogni intero nell’area di memoria la cui prima parola ha indirizzo 64 e la cui ultima parola ha indirizzo 88 e ne copia il valore a partire dall'area che inizia all'indirizzo 100. Il valore copiato deve essere diminuito di una quantità pari alla posizione del numero da copiare, cioè il primo numero copiato sarà diminuito di 1, il secondo di 2, ecc.
