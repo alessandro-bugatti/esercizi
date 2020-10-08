@@ -3,11 +3,18 @@
 /dall'utente. Ricordarsi di non inserire numeri troppo grandi
 /(>13) altrimenti il risultato non sarà corretto
 
+/ Idea risolutiva: moltiplicare N*(N-1)*(N-2)*...*1
+/ calcolando ogni volta la moltiplicazione come somma di n termini
+/ R3 è conterrà ogni volta il prodotto parziale, ottenuto come somma
+/ ripetute R2 volte del valore contenuto in R1
+
       /Leggo il valore di N
       INP R0, 2
-      /Leggo il valore di a
+      /Inserisco 1 in R1 che conterrà il numero attuale che serve per il prodotto
       MOV R1, #1
-      /Leggo il valore di b che agirà come contatore del ciclo
+      /Copio il valore di N in R2 perchè R2 verrà usato come contatore del ciclo
+      /per fare la moltiplicazione e quindi ogni volta va rimesso al valore di R0
+      /attuale
       MOV R2, R0 
 CICLO_ESTERNO:
       MOV R3, #0
