@@ -13,6 +13,8 @@ typedef struct{
 
 ComplessoExp convertiInExp(Complesso a);
 
+Complesso convertiInComplesso(ComplessoExp a);
+
 void stampa( Complesso c);
 
 void stampaExp( ComplessoExp c);

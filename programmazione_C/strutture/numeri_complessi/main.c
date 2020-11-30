@@ -12,8 +12,12 @@ int main()
    scanf("%lf", &b.re);
    printf("Inserisci la parte immaginaria: ");
    scanf("%lf", &b.im);
-   printf("La forma esponenziale di a è\n");
-   stampaExp(convertiInExp(b));
+   printf("La forma esponenziale diventa\n");
+   ComplessoExp temp = convertiInExp(b);
+   stampaExp(temp);
+   printf("Se riconvertito alla forma originale si ha: \n");
+   b = convertiInComplesso(temp);
+   stampa(b);
    printf("\nIl modulo di ");
    stampa(a);
    printf(" vale %lf", modulo(a));

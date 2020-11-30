@@ -69,3 +69,11 @@ ComplessoExp convertiInExp(Complesso a)
     ce.fase = atan2(a.im, a.re);
     return ce;
 }
+
+Complesso convertiInComplesso(ComplessoExp a)
+{
+    Complesso c;
+    c.re = a.modulo*cos(a.fase);
+    c.im = a.modulo*sin(a.fase);
+    return c;
+}
