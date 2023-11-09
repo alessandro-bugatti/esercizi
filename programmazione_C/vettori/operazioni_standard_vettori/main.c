@@ -46,6 +46,14 @@ int inserimento_in_posizione (int v[], int n, int inserito, int pos)
     return pos;
 }
 
+int inserimento_in_fondo (int v[], int n, int inserito)
+{
+    if (pos < 0 || pos >= n)
+        return -1;
+    v[n] = inserito;
+    return n;
+}
+
 int cancellazione_in_posizione (int v[], int n, int pos)
 {
     if (pos < 0 || pos >= n)
@@ -53,6 +61,13 @@ int cancellazione_in_posizione (int v[], int n, int pos)
     int i;
     for (i = pos; i < n - 1; i++)
         v[i] = v[i + 1];
+    return n - 1;
+}
+
+int cancellazione_senza_ordine(int v[], int n, int pos) {
+    if (pos < 0 || pos > n - 1)
+        return -1;
+    v[pos] = v[n-1];
     return n - 1;
 }
 
