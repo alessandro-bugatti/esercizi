@@ -32,10 +32,11 @@ int main()
             printf("%d ", b[i][j]);
         printf("\n");
     }
-    //Inizializza la matrice b
+    //Inizializza la matrice c
     for (i = 0; i < M; i++)
         for (j = 0; j < P; j++)
             c[i][j] = 0;
+    //Calcola il prodotto tra la matrice a e la matrice b
     for (i = 0; i < M; i++)
         for (j = 0; j < P; j++)
             for (k = 0; k < N; k++)
