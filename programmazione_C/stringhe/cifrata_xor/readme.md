@@ -1,6 +1,6 @@
 # Cifratura con lo XOR
 
-Si scriva una funzione che accetta come parametro una stringa e che la modifichi in modo che ogni carattere venga messo in XOR bit a bit con la sequenza esadecimale AA. Si ricorda che l'operatore di XOR binario nel C è rappresentato dal simbolo **^**. Il funzionamento è quello di fare lo XOR tra i singoli bit dei due operandi, come si può vedere nel seguente esempio
+Si scriva una funzione che accetta come parametro una stringa e che la modifichi in modo che **ogni carattere** venga messo in XOR bit a bit con la sequenza esadecimale **5A**. Si ricorda che l'operatore di XOR binario nel C è rappresentato dal simbolo **^**. Il funzionamento è quello di fare lo XOR tra i singoli bit dei due operandi, come si può vedere nel seguente esempio
 
 <pre>
 a = 11001000

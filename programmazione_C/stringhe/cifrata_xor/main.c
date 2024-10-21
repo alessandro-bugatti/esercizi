@@ -5,7 +5,7 @@ void codifica_xor(char s[])
 {
     int i;
     for (i = 0; s[i] != '\0'; i++)
-        s[i] = s[i] ^ 0xAA;
+        s[i] = s[i] ^ 0x5A;
 }
 int main()
 {
