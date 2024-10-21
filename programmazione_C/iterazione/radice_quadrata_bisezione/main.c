@@ -6,9 +6,9 @@ int main()
     float N;
     float a, b, medio;
     float epsilon = 0.001;
-    printf("Inserisci un numero positivo: ");
+    printf("Inserisci un numero > 1: ");
     scanf("%f", &N);
-    a = 0;
+    a = 1;
     b = N;
     while(b - a > epsilon)
     {
